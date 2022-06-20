@@ -16,9 +16,9 @@ layout = html.Div([
             html.H3('Nhóm 3TN'),
             html.P('Danh Sách Thành Viên'),
             html.H4('Trịnh Xuân Nam'),
-            html.H4(' Lê Nguyễn Thiên Thanh'),
+            html.H4('Lê Nguyễn Thiên Thanh'),
             html.H4('Lê Phước Trí'),
-            html.H4(' Trần Minh Trí'),
+            html.H4('Trần Minh Trí'),
         ])
     ),
     html.Div(

@@ -1,24 +1,65 @@
 import dash
+import pickle
+import numpy as np
 from dash import html, dcc, callback, Input, Output
+from dash.exceptions import PreventUpdate
 
 dash.register_page(__name__)
 
+# mymodel = pickle.load(open('./data/mymodel.sav','rb')) 
+
+# def myCalculator():
+#    vT1 = float(entry1.get())
+#    vT2 = float(entry2.get())
+#    vT3 = float(entry3.get())
+#    predicted_Die = np.round(mymodel.predict([[vT1,vT2,vT3]]))
+#    lbl.config(text="Deaths prediction: " + str (predicted_Die))
+
 layout = html.Div(children=[
-    html.H1(children='This is our Analytics page'),
-	# html.Div([
-    #     "Select a city: ",
-    #     dcc.RadioItems(['New York City', 'Montreal','San Francisco'],
-    #     'Montreal',
-    #     id='analytics-input')
-    # ]),
-	# html.Br(),
-    # html.Div(id='analytics-output'),
+    html.P(children='Number of positive cases'),
+	html.Div([
+
+        dcc.Input(
+            id="input_positive",
+            type="number",
+            placeholder="Number of deaths",
+        )
+    ]),
+    html.P(children='Population'),
+	html.Div([
+
+        dcc.Input(
+            id="input_population",
+            type="number",
+            placeholder="Population",
+        )
+    ]),
+    html.P(children='Number of people older than 70'),
+	html.Div([
+
+        dcc.Input(
+            id="input_older70",
+            type="number",
+            placeholder="Number of people older than 70",
+        )
+    ]),
+
+    html.Div([
+        html.Button('Predict', id='submit')
+    ]),
+    html.Div(id='output_deaths'),
 ])
 
 
-# @callback(
-#     Output(component_id='analytics-output', component_property='children'),
-#     Input(component_id='analytics-input', component_property='value')
-# )
-def update_city_selected(input_value):
-    return f'You selected: {input_value}'
+@callback(
+    Output(component_id='output_deaths', component_property='children'),
+    Input(component_id='input_positive', component_property='value'),
+    Input(component_id='input_population', component_property='value'),
+    Input(component_id='input_older70', component_property='value'),
+    Input(component_id='submit', component_property='n_clicks'),
+)
+def update_city_selected(input_positive, input_population, input_older70, n_clicks):
+    if n_clicks is None:
+        raise PreventUpdate
+    else:
+        return f'Deaths Prediction: {input_positive + input_population + input_older70}'
