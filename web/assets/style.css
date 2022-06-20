@@ -1,0 +1,57 @@
+.bg-index{
+    width: 100%;
+    height: 100vh;
+    background-image: url(/assets/imgs/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+.app-header--title{
+    font-size: 4rem;
+    color: #fff;
+}
+.wapper-team{
+    text-align: center;
+}
+.wapper-team h3{
+    font-size: 3rem;
+    color: #ffb100;
+}
+.wapper-team h4{
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0;
+}
+.wapper-team p{
+    font-size: 2rem;
+    color: #80e8e0;
+}
+.wapper-nav{
+    display: block;
+    /* width: 100%; */
+    text-align: center;
+}
+.wapper-nav div{
+    display: flex;
+}
+.btn-nav{
+    display: block;
+    min-width: 150px;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin: 15px;
+    padding: 10px 15px;
+    border: 1px solid #dcdcdc;
+    text-decoration: none;
+}
+.btn-analy{
+    color: #fff;
+    background-color: #119dff;
+}
+.btn-pre{
+    color: #000000;
+    background-color: #ffe000;
+}
