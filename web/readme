@@ -1,2 +1,3 @@
 pip install dash
 pip install dash-bootstrap-components
+python index.py
