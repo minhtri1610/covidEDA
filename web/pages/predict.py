@@ -47,8 +47,9 @@ layout = html.Div([
     html.Div(
         className="wapper-nav",
         children=html.Div([
-            dcc.Link('< Analytics page', href='/analytics', className="btn-nav btn-analy"),
-            dcc.Link('Home Page >', href='/home', className="btn-nav btn-pre"),
+            dcc.Link('< Home Page', href='/home', className="btn-nav btn-pre"),
+            dcc.Link('Analytics Page >', href='/analytics', className="btn-nav btn-analy")
+            
         ])
     )
 ], className='wapper_predict')

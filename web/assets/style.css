@@ -120,3 +120,23 @@ body{
     max-width: 100%;
     width: 300px;
 }
+
+.wapper-top-cases{
+    display: flex;
+    /* width: 100%; */
+    margin: 15px;
+    justify-content: center;
+    margin-bottom: 50px
+}
+.wapper-top-cases h2{
+    margin: 15px;
+    font-size: 3rem;
+    border: 1px solid #dcdcdc;
+    padding: 5px 15px;
+}
+.wapper-top-cases h2:nth-child(1){
+    color: #119dff;
+}
+.wapper-top-cases h2:nth-child(2){
+    color: red;
+}
