@@ -20,15 +20,6 @@ layout = html.Div([
             placeholder="Number of positive cases",
         )
     ]),
-    html.P(children='Population', className="title"),
-	html.Div([
-
-        dcc.Input(
-            id="input_population",
-            type="number",
-            placeholder="Population",
-        )
-    ]),
     html.P(children='Number of people older than 70', className="title"),
 	html.Div([
 
@@ -36,6 +27,15 @@ layout = html.Div([
             id="input_older70",
             type="number",
             placeholder="Number of people older than 70",
+        )
+    ]),
+    html.P(children='Population', className="title"),
+	html.Div([
+
+        dcc.Input(
+            id="input_population",
+            type="number",
+            placeholder="Population",
         )
     ]),
 
@@ -68,7 +68,7 @@ def update_city_selected(input_positive, input_population, input_older70, n_clic
         return f'Deaths Prediction: 0'
     else:
         if input_positive is not None and input_population is not None and input_older70 is not None :
-            predicted_Die = np.round(mymodel.predict([[input_positive, input_population, input_older70]]))
+            predicted_Die = np.round(mymodel.predict([[input_positive, input_older70, input_population]]))
             return f'Deaths Prediction: {predicted_Die}'
         else:
             return f'Deaths Prediction: 0'
