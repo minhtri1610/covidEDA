@@ -3,17 +3,11 @@ import pickle
 import numpy as np
 from dash import html, dcc, callback, Input, Output
 from dash.exceptions import PreventUpdate
+from sklearn import linear_model
 
 dash.register_page(__name__)
 
-# mymodel = pickle.load(open('./data/mymodel.sav','rb')) 
-
-# def myCalculator():
-#    vT1 = float(entry1.get())
-#    vT2 = float(entry2.get())
-#    vT3 = float(entry3.get())
-#    predicted_Die = np.round(mymodel.predict([[vT1,vT2,vT3]]))
-#    lbl.config(text="Deaths prediction: " + str (predicted_Die))
+mymodel = pickle.load(open('./data/mymodel.sav','rb')) 
 
 layout = html.Div(children=[
     html.P(children='Number of positive cases'),
@@ -62,4 +56,5 @@ def update_city_selected(input_positive, input_population, input_older70, n_clic
     if n_clicks is None:
         raise PreventUpdate
     else:
-        return f'Deaths Prediction: {input_positive + input_population + input_older70}'
+        predicted_Die = np.round(mymodel.predict([[input_positive, input_population, input_older70]]))
+        return f'Deaths Prediction: {predicted_Die}'
