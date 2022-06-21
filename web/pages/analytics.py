@@ -54,6 +54,14 @@ layout = html.Div([
             dcc.Graph(id='my_graph_4',figure=fig_4),
         ], className = 'one-half column'),
      ],className="row flex-display")
+
+    ,html.Div(
+        className="wapper-nav",
+        children=html.Div([
+            dcc.Link('< Predict page', href='/predict', className="btn-nav btn-analy"),
+            dcc.Link('Home Page >', href='/home', className="btn-nav btn-pre"),
+        ])
+    )
 ])
 # pip install dash
 

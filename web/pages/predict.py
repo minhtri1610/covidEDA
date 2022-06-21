@@ -3,23 +3,24 @@ import pickle
 import numpy as np
 from dash import html, dcc, callback, Input, Output
 from dash.exceptions import PreventUpdate
-from sklearn import linear_model
 
 dash.register_page(__name__)
 
 mymodel = pickle.load(open('./data/mymodel.sav','rb')) 
 
-layout = html.Div(children=[
-    html.P(children='Number of positive cases'),
+layout = html.Div([
+    html.Img(src="assets/imgs/pre-img.png"),
+    html.H1('Number of deaths in prediction'),
+    html.P(children='Number of positive cases', className="title"),
 	html.Div([
 
         dcc.Input(
             id="input_positive",
             type="number",
-            placeholder="Number of deaths",
+            placeholder="Number of positive cases",
         )
     ]),
-    html.P(children='Population'),
+    html.P(children='Population', className="title"),
 	html.Div([
 
         dcc.Input(
@@ -28,7 +29,7 @@ layout = html.Div(children=[
             placeholder="Population",
         )
     ]),
-    html.P(children='Number of people older than 70'),
+    html.P(children='Number of people older than 70', className="title"),
 	html.Div([
 
         dcc.Input(
@@ -42,7 +43,16 @@ layout = html.Div(children=[
         html.Button('Predict', id='submit')
     ]),
     html.Div(id='output_deaths'),
-])
+
+    html.Div(
+        className="wapper-nav",
+        children=html.Div([
+            dcc.Link('< Analytics page', href='/analytics', className="btn-nav btn-analy"),
+            dcc.Link('Home Page >', href='/home', className="btn-nav btn-pre"),
+        ])
+    )
+], className='wapper_predict')
+
 
 
 @callback(

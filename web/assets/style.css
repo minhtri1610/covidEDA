@@ -1,3 +1,6 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
 body{
     margin: 0;
 }
@@ -15,13 +18,16 @@ body{
 .app-header--title{
     font-size: 4rem;
     color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 .wapper-team{
     text-align: center;
 }
 .wapper-team h3{
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #ffeb3b;
+    text-transform: uppercase;
 }
 .wapper-team h4{
     font-size: 2.5rem;
@@ -39,6 +45,7 @@ body{
 }
 .wapper-nav div{
     display: flex;
+    justify-content: center;
 }
 .btn-nav{
     display: block;
@@ -49,16 +56,67 @@ body{
     padding: 10px 15px;
     border: 1px solid #dcdcdc;
     text-decoration: none;
+    border-radius: 50px;
 }
 .btn-analy{
     color: #fff;
     background-color: #119dff;
 }
+.btn-analy:hover{
+    color: #119dff;
+    background-color: #fff;
+}
 .btn-pre{
     color: #000000;
     background-color: #ffe000;
 }
-
+.btn-pre:hover{
+    color: #ffe000;
+    background-color: #fff;
+}
 .js-plotly-plot .plotly .user-select-none{
     margin: 0 auto;
+}
+.wapper_predict{
+    border: 1px solid #dcdcdc;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 30px auto;
+    background: #80e8e091;
+    border-radius: 6px;
+}
+.title{
+    /* font-weight: bold; */
+    font-size: 18px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+#submit{
+    min-width: 120px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #119dff;
+    border: 1px solid #dcdcdc;
+    padding: 10px 15px;
+    margin: 15px;
+}
+.wapper_predict input{
+    width: 100%;
+    padding: 10px 15px;
+    /* display: flex; */
+    font-size: 16px;
+    /* border-radius: 6px; */
+    border: 1px solid #dcdcdc;
+}
+#output_deaths{
+    font-size: 2.5rem;
+    color: red;
+    margin: 15px;
+}
+.wapper_predict img{
+    max-width: 100%;
+    width: 300px;
 }

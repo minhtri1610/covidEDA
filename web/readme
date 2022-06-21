@@ -1,4 +1,6 @@
 pip install dash
 pip install dash-bootstrap-components
 pip install -U scikit-learn
+
+#build web
 python index.py
