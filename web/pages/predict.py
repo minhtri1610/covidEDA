@@ -65,7 +65,12 @@ layout = html.Div([
 )
 def update_city_selected(input_positive, input_population, input_older70, n_clicks):
     if n_clicks is None:
-        raise PreventUpdate
+        return f'Deaths Prediction: 0'
     else:
-        predicted_Die = np.round(mymodel.predict([[input_positive, input_population, input_older70]]))
-        return f'Deaths Prediction: {predicted_Die}'
+        if input_positive is not None and input_population is not None and input_older70 is not None :
+            predicted_Die = np.round(mymodel.predict([[input_positive, input_population, input_older70]]))
+            return f'Deaths Prediction: {predicted_Die}'
+        else:
+            return f'Deaths Prediction: 0'
+        
+        

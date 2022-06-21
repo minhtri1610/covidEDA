@@ -140,3 +140,6 @@ body{
 .wapper-top-cases h2:nth-child(2){
     color: red;
 }
+.text-center{
+    text-align: center;
+}
